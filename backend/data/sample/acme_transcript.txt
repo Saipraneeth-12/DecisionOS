@@ -1,0 +1,34 @@
+MEETING TRANSCRIPT - ACME CORP
+Date: November 20, 2024
+Attendees: Sarah Johnson (CSM), Lisa Park (Acme - Platform Lead)
+Duration: 32 minutes
+
+Sarah: Thanks for making time Lisa. How has the platform been working for the team?
+
+Lisa: Honestly, it's been challenging. Since James left, nobody really owns the platform initiative. 
+The engineering team has been complaining about latency issues and we had three outages last month.
+
+Sarah: I understand, I'm sorry to hear that. What's the biggest pain point right now?
+
+Lisa: Speed. Our API response times are 3-4 seconds and our users are frustrated. 
+We also haven't gotten traction with the new analytics module - nobody has been trained on it.
+
+Sarah: Have you had a chance to connect with Sarah Chen, the new VP Engineering?
+
+Lisa: She's been overwhelmed with the Q4 roadmap. She mentioned she was looking at options to consolidate 
+tooling. I think Competitor X reached out to her directly.
+
+Sarah: That's concerning. Do you know when Sarah Chen has availability?
+
+Lisa: Not until December. She has a hard freeze on all external meetings until Q4 closes.
+
+Sarah: What would make the biggest difference right now?
+
+Lisa: If we could get the performance issues resolved and someone could train the analytics team, 
+that would help a lot. We're also worried about budget - there's a review in January.
+
+Action Items:
+- Sarah J to escalate performance issues to engineering (Priority P1)
+- Sarah J to request Sarah Chen intro through Bob Martinez (CFO)
+- Schedule analytics training session for 8 team members
+- Prepare ROI report for Q4 budget review

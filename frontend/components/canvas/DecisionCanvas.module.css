@@ -1,0 +1,180 @@
+/* DecisionCanvas CSS Module */
+
+.gridBg {
+  background-image: 
+    radial-gradient(at 50% 50%, rgba(139, 92, 246, 0.05) 0px, transparent 50%),
+    linear-gradient(rgba(255, 255, 255, 0.007) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.007) 1px, transparent 1px);
+  background-size: 100% 100%, 24px 24px, 24px 24px;
+}
+
+.typingCursor::after {
+  content: '▋';
+  animation: curBlink 0.9s step-end infinite;
+  color: #8B5CF6;
+  margin-left: 1px;
+  font-size: 0.82em;
+  vertical-align: text-bottom;
+}
+
+@keyframes curBlink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.glass {
+  background: rgba(255, 255, 255, 0.028);
+  backdrop-filter: blur(20px) saturate(1.5);
+  -webkit-backdrop-filter: blur(20px) saturate(1.5);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.glassDeep {
+  background: rgba(7, 8, 20, 0.88);
+  backdrop-filter: blur(28px);
+  border: 1px solid rgba(255, 255, 255, 0.065);
+}
+
+.glassPanel {
+  background: rgba(255, 255, 255, 0.018);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.055);
+}
+
+.decisionCardBorder {
+  background:
+    linear-gradient(#0d0d1e, #0d0d1e) padding-box,
+    linear-gradient(135deg, rgba(139, 92, 246, 0.55), rgba(168, 85, 247, 0.3), rgba(56, 189, 248, 0.2)) border-box;
+  border: 1px solid transparent;
+}
+
+.decisionCardBorderEmerald {
+  background:
+    linear-gradient(#0a1a14, #0a1a14) padding-box,
+    linear-gradient(135deg, rgba(34, 197, 94, 0.45), rgba(56, 189, 248, 0.25)) border-box;
+  border: 1px solid transparent;
+}
+
+.timelineConnector {
+  position: absolute;
+  left: 18px;
+  top: 28px;
+  bottom: 0;
+  width: 1px;
+  background: linear-gradient(to bottom, rgba(139, 92, 246, 0.4), transparent);
+}
+
+/* Animations */
+.fadeUp {
+  animation: fadeUpAnim 0.28s ease-out;
+}
+
+@keyframes fadeUpAnim {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.fadeIn {
+  animation: fadeInAnim 0.2s ease-out;
+}
+
+@keyframes fadeInAnim {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.shimmer {
+  background: linear-gradient(90deg,
+    rgba(255,255,255,0.025) 25%,
+    rgba(255,255,255,0.07)  50%,
+    rgba(255,255,255,0.025) 75%);
+  background-size: 200% 100%;
+  animation: shimmerAnim 1.8s ease-in-out infinite;
+}
+
+@keyframes shimmerAnim {
+  0%   { background-position: -200% 0; }
+  100% { background-position:  200% 0; }
+}
+
+.pulseGlow {
+  animation: pulseGlowAnim 2.2s ease-in-out infinite;
+}
+
+@keyframes pulseGlowAnim {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(139, 92, 246, 0.3); }
+  50%      { box-shadow: 0 0 0 6px rgba(139, 92, 246, 0); }
+}
+
+.stageActive {
+  animation: stagePulseAnim 2.2s ease-in-out infinite;
+}
+
+@keyframes stagePulseAnim {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(139, 92, 246, 0.35); }
+  50%      { box-shadow: 0 0 0 5px rgba(139, 92, 246, 0); }
+}
+
+/* Agent Dot blink */
+.agentDotRunning {
+  animation: agentBlinkAnim 1.1s ease-in-out infinite;
+}
+
+@keyframes agentBlinkAnim {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%      { opacity: 0.45; transform: scale(0.78); }
+}
+
+/* Agent Pill states */
+.agentPill {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-size: 10px;
+  font-weight: 600;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  color: #94a3b8;
+  transition: all 0.15s;
+}
+
+.agentPillRunning {
+  background: rgba(139, 92, 246, 0.12);
+  border-color: rgba(139, 92, 246, 0.25);
+  color: #a78bfa;
+}
+
+.agentPillDone {
+  background: rgba(34, 197, 94, 0.1);
+  border-color: rgba(34, 197, 94, 0.2);
+  color: #4ade80;
+}
+
+.agentPillSkipped {
+  background: rgba(100, 116, 139, 0.08);
+  border-color: rgba(100, 116, 139, 0.15);
+  color: #64748b;
+}
+
+.liveBar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: rgba(139, 92, 246, 0.08);
+  border: 1px solid rgba(139, 92, 246, 0.15);
+  font-size: 11px;
+  color: #a78bfa;
+  max-width: fit-content;
+}
+
+/* Recommendation Lifecycle States */
+.lifecyclePending   { color: #F59E0B; background: rgba(245, 158, 11, 0.12);  border-color: rgba(245, 158, 11, 0.25); }
+.lifecycleApproved  { color: #22C55E; background: rgba(34, 197, 94, 0.12); border-color: rgba(34, 197, 94, 0.25); }
+.lifecycleRejected  { color: #EF4444; background: rgba(239, 68, 68, 0.12);  border-color: rgba(239, 68, 68, 0.25); }
+.lifecycleExecuting { color: #38bdf8; background: rgba(56, 189, 248, 0.12); border-color: rgba(56, 189, 248, 0.25); }
+.lifecycleCompleted { color: #94a3b8; background: rgba(100, 116, 139, 0.12);border-color: rgba(100, 116, 139, 0.2); }
+.lifecycleModified  { color: #c084fc; background: rgba(168, 85, 247, 0.12); border-color: rgba(168, 85, 247, 0.25); }

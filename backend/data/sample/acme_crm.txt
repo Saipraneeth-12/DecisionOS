@@ -1,0 +1,30 @@
+ACME CORP - CRM EXPORT
+Account: Acme Corp
+ARR: $380,000
+Contract Start: 2023-01-15
+Contract End: 2024-01-14
+Renewal Date: 2024-01-14 (60 days away)
+Account Health: 38 (Red - Critical)
+NPS Score: 5
+CSM: Sarah Johnson
+Account Executive: Mike Chen
+Industry: Manufacturing
+Employees: 2,400
+Headquarters: Chicago, IL
+
+Usage Metrics (Last 30 days):
+- Daily Active Users: 142 (down from 380, -62%)
+- API Calls: 12,000/day (down from 45,000, -73%)
+- Feature Adoption: 28% (down from 71%)
+- Last Login: 3 days ago
+
+Stakeholders:
+- James Wilson (CTO) - Champion - Status: LEFT COMPANY (Nov 15)
+- Sarah Chen (VP Engineering) - New contact - Not yet engaged
+- Bob Martinez (CFO) - Economic Buyer - Unknown sentiment
+- Lisa Park (Platform Team Lead) - Daily user - Engaged
+
+Open Support Tickets: 7 (3 critical)
+Last EBR: 6 months ago
+NPS Response: "Platform is too slow for our use case. We're evaluating alternatives."
+Competitor Activity: Competitor X demo scheduled for Dec 5
