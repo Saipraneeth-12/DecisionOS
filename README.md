@@ -243,6 +243,12 @@ decision-os/
 
 ---
 
+## 🔗 GitHub Repository
+
+[https://github.com/Saipraneeth-12/DecisionOS](https://github.com/Saipraneeth-12/DecisionOS)
+
+---
+
 ## 👥 Team
 
 | Name | Branch |
