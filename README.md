@@ -1,7 +1,6 @@
 # ⚡ DecisionOS — Agentic Decision Intelligence Platform
 
-> **Enterprise decision operating system powered by multi-agent AI orchestration.**
-> Transform customer interactions, enterprise knowledge, and business reasoning into explainable Next Best Actions.
+> A next-generation AI-powered decision intelligence platform designed to help enterprises turn scattered business data into explainable, actionable outcomes.
 
 [![Python](https://img.shields.io/badge/Python-3.12-blue)](https://python.org)
 [![FastAPI](https://img.shields.io/badge/FastAPI-0.111-green)](https://fastapi.tiangolo.com)
@@ -10,50 +9,131 @@
 
 ---
 
-## 🏗️ Architecture
+## 📌 HR Screening Summary
 
-```
-┌─────────────────────────────────────────────────────────────────┐
-│                        DecisionOS                               │
-├──────────────────┬──────────────────────┬───────────────────────┤
-│   Frontend       │      Backend         │    Infrastructure     │
-│   Next.js 15     │      FastAPI         │    PostgreSQL         │
-│   Tailwind CSS   │      LangGraph       │    Redis              │
-│   Framer Motion  │      LLM Abstraction │    Qdrant (vectors)   │
-│   Zustand        │      Memory Layer    │    Langfuse           │
-└──────────────────┴──────────────────────┴───────────────────────┘
+DecisionOS is an enterprise decision-support system that uses multiple AI agents to analyze customer, sales, hiring, and operational scenarios and recommend the best next action with reasoning. The platform is designed for real business use cases where teams need faster decision-making, clearer explanation, and structured action plans.
 
-Agent Execution Pipeline:
-┌─────────────────────────────────────────────────────────────────┐
-│ User Input                                                      │
-│    ↓                                                            │
-│ [Conversation Manager] → intent, domain, entities, urgency      │
-│    ↓                                                            │
-│ [Information Completeness Agent] → checklist, gaps, quality     │
-│    ↓                                                            │
-│ [Planner Agent] → execution graph, parallelization plan         │
-│    ↓                                                            │
-│ ┌─────────────────┐  ┌──────────────────┐  (PARALLEL)         │
-│ │  Memory Agent   │  │  Knowledge Agent │                      │
-│ │  org memory     │  │  RAG over docs   │                      │
-│ └─────────────────┘  └──────────────────┘                      │
-│    ↓                                                            │
-│ [Domain Specialist] → root cause, risks, domain insights        │
-│    ↓                                                            │
-│ ┌─────────────────┐  ┌──────────────────┐  (PARALLEL)         │
-│ │   Risk Agent    │  │ Opportunity Agent│                      │
-│ │   churn prob    │  │   upsell / exp   │                      │
-│ └─────────────────┘  └──────────────────┘                      │
-│    ↓                                                            │
-│ [Recommendation Agent] → Next Best Action with full explainability│
-│    ↓                                                            │
-│ [Confidence Agent] → score calibration, evidence quality        │
-│    ↓                                                            │
-│ [Human-in-the-Loop] → Approve / Modify / Reject / Escalate     │
-│    ↓                                                            │
-│ [Memory Update] → store outcome, update organizational memory   │
-└─────────────────────────────────────────────────────────────────┘
+This project demonstrates:
+- AI-driven business decision support for real-world domains
+- Multi-agent orchestration for specialized reasoning
+- Human-in-the-loop decision approval workflow
+- Explainable recommendations backed by evidence and context
+- Enterprise-ready design for customer success, sales, staffing, and operations
+
+DecisionOS was built as a collaborative student innovation project with a strong focus on applied AI, full-stack development, and product thinking.
+
+---
+
+## 🎯 Problem We Solved
+
+Modern organizations deal with fragmented information across CRM data, documents, customer conversations, and internal knowledge. Teams often struggle to:
+- identify the right next step from incomplete or noisy inputs
+- evaluate risk, opportunity, and urgency together
+- understand why a recommendation was made
+- coordinate decisions across teams without delays
+
+DecisionOS addresses this by combining AI reasoning, document understanding, memory, and workflow orchestration into one decision platform.
+
+---
+
+## 🧠 What the Product Does
+
+DecisionOS acts like an intelligent operational assistant for business decisions. It can:
+- understand business context from user prompts and uploaded documents
+- detect intent, domain, urgency, and missing information
+- retrieve relevant organizational memory and domain knowledge
+- analyze risk and opportunity in parallel
+- generate an explainable recommendation or "Next Best Action"
+- allow human approval, modification, or rejection of decisions
+
+This makes it suitable for scenarios such as:
+- customer churn prevention
+- upsell and expansion planning
+- candidate evaluation
+- deal acceleration
+- operational support and decision auditing
+
+---
+
+## 🏗️ Architecture Overview
+
+```text
+┌──────────────────────────────────────────────────────────────────────┐
+│                        DecisionOS                                     │
+├──────────────────┬──────────────────────┬────────────────────────────┤
+│   Frontend       │      Backend         │    Infrastructure          │
+│   Next.js 15     │      FastAPI         │    PostgreSQL             │
+│   Tailwind CSS   │      LangGraph       │    Redis                  │
+│   Framer Motion  │      LLM Layer       │    Qdrant (vectors)       │
+│   Zustand        │      Memory Layer    │    Langfuse               │
+└──────────────────┴──────────────────────┴────────────────────────────┘
 ```
+
+The platform follows an agentic workflow:
+
+1. User input is interpreted and structured
+2. Missing information is identified
+3. Relevant knowledge and memory are retrieved
+4. Specialized agents analyze risk, opportunity, and domain context
+5. The recommendation engine proposes a decision
+6. Human users validate, modify, or reject it
+7. Outcomes are stored for future learning
+
+---
+
+## 🤖 Core Agent System
+
+DecisionOS uses a coordinated multi-agent architecture with specialized roles:
+
+| Agent | Responsibility |
+|-------|----------------|
+| Conversation Manager | Understand intent, entities, and urgency |
+| Information Completeness | Identify missing context and gaps |
+| Planner | Build execution strategy and coordination flow |
+| Memory Agent | Retrieve previous experience and similar cases |
+| Knowledge Agent | Search knowledge and document repositories |
+| Domain Specialist | Apply domain-specific reasoning |
+| Risk Agent | Evaluate threats and escalation conditions |
+| Opportunity Agent | Find growth and expansion potential |
+| Recommendation Agent | Produce explainable next-best actions |
+| Confidence Agent | Assess evidence quality and decision confidence |
+
+---
+
+## 💼 Business Impact
+
+This project is designed to demonstrate how AI can support business operations by:
+- reducing decision delay for complex situations
+- improving transparency in recommendation systems
+- combining structured data, documents, and memory for better judgment
+- empowering teams with faster, evidence-backed actions
+- enabling human oversight for critical decisions
+
+In short, DecisionOS is a practical example of AI solving real business coordination and reasoning problems rather than just answering generic questions.
+
+---
+
+## 🛠️ Technology Stack
+
+**Backend:**
+- Python 3.12+
+- FastAPI
+- Pydantic
+- LangGraph-inspired orchestration
+- LLM abstraction for Gemini / Groq / OpenAI
+
+**Frontend:**
+- Next.js 15
+- TypeScript
+- Tailwind CSS
+- Framer Motion
+- Zustand
+
+**Infrastructure (optional/demo-ready):**
+- PostgreSQL
+- Redis
+- Qdrant
+- Langfuse
 
 ---
 
@@ -62,211 +142,102 @@ Agent Execution Pipeline:
 ### Prerequisites
 - Python 3.12+
 - Node.js 20+
-- A Gemini API key (free at [ai.google.dev](https://ai.google.dev)) OR Groq API key
+- Gemini API key or Groq API key
 
-### 1. Backend Setup
-
+### Backend Setup
 ```bash
-cd decision-os/backend
-
-# Copy and configure environment
+cd backend
 copy .env.example .env
-# Edit .env and add your GEMINI_API_KEY or GROQ_API_KEY
-
-# Install dependencies
 pip install -r requirements.txt
-
-# Run the backend
 uvicorn app.main:app --reload --port 8000
 ```
 
-The API will be at `http://localhost:8000` with docs at `http://localhost:8000/docs`.
-
-### 2. Frontend Setup
-
+### Frontend Setup
 ```bash
-cd decision-os/frontend
-
-# Install dependencies
+cd frontend
 npm install
-
-# Run the frontend
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000)
-
-### 3. Docker (Full Stack)
-
-```bash
-cd decision-os
-
-# Create .env file with your API keys
-echo "GEMINI_API_KEY=your_key_here" > .env
-echo "GROQ_API_KEY=your_key_here" >> .env
-
-docker-compose up --build
-```
+Open the app at: http://localhost:3000
 
 ---
 
-## 🔑 Configuration
+## 🌍 Demo Use Cases
 
-Edit `backend/.env`:
+DecisionOS can be demonstrated using scenarios such as:
 
-```env
-# Choose your LLM provider
-LLM_PROVIDER=gemini          # or: groq, openai
-LLM_MODEL=gemini-1.5-flash   # or: llama-3.1-70b-versatile, gpt-4o-mini
+### Customer Success
+- churn-risk analysis
+- renewal prioritization
+- account health monitoring
 
-# Add your API key
-GEMINI_API_KEY=your_key_here
-# GROQ_API_KEY=your_key_here
-```
+### Sales
+- upsell planning
+- deal acceleration
+- opportunity prioritization
 
-**Getting a free Gemini API key:**
-1. Go to https://ai.google.dev/
-2. Click "Get API key"
-3. Create key in Google AI Studio
-4. Paste in `.env` as `GEMINI_API_KEY=...`
+### Staffing
+- candidate evaluation for hiring decisions
 
----
-
-## 🎯 Demo Scenarios
-
-Try these prompts in DecisionOS:
-
-### 🔴 Churn Risk (Customer Success)
-```
-We are worried about churn risk for Acme Corp. Their $380K annual contract 
-renews in 60 days. Platform usage dropped 62%, our champion just left the 
-company, and a competitor has a demo scheduled next week.
-```
-
-### 📈 Upsell Opportunity (Sales)
-```
-TechStart has been on our platform 18 months with 85% feature adoption 
-and NPS of 9. They just hired 50 new engineers across 3 departments. 
-What's the best expansion strategy?
-```
-
-### ⚡ Deal Acceleration (Sales)
-```
-The GlobalBank deal ($450K ARR) has been in final stage for 6 weeks. 
-The champion is pushing but procurement is blocking. A competitor just 
-got added to the shortlist. How do I close this?
-```
-
-### 👤 Candidate Review (Staffing)
-```
-Final round candidate for Senior ML Engineer. 8 years experience, 
-strong LLM and MLOps background, but limited team leadership. 
-Should we extend an offer for this senior IC role?
-```
-
----
-
-## 🧠 Agents
-
-| Agent | Role |
-|-------|------|
-| **Conversation Manager** | Intent detection, domain classification, entity extraction |
-| **Information Completeness** | Determine required info, detect gaps, show checklist |
-| **Planner** | Pure orchestration - builds execution graph with parallelization |
-| **Memory Agent** | Retrieves org memory, similar cases, episodic history |
-| **Knowledge Agent** | RAG over playbooks, policies, contracts, uploaded docs |
-| **Domain Specialist** | Deep domain reasoning (CS, Sales, Healthcare, Energy...) |
-| **Risk Agent** | Churn probability, health score, urgency, escalation |
-| **Opportunity Agent** | Upsell, expansion, cross-sell detection |
-| **Recommendation Agent** | Next Best Action with full explainability |
-| **Confidence Agent** | Evidence quality scoring, calibration, data coverage |
-
----
-
-## 📁 Project Structure
-
-```
-decision-os/
-├── backend/
-│   ├── app/
-│   │   ├── agents/          # All 10 AI agents
-│   │   ├── api/routes/      # FastAPI routes (chat, conversations)
-│   │   ├── core/            # Config, LLM abstraction, logging
-│   │   ├── db/              # SQLAlchemy models + database
-│   │   ├── memory/          # Hierarchical memory manager
-│   │   ├── services/        # Conversation + document services
-│   │   └── workflows/       # Main decision orchestration workflow
-│   ├── data/sample/         # Sample CRM/transcript data
-│   ├── scripts/             # Seed scripts
-│   └── requirements.txt
-├── frontend/
-│   ├── app/                 # Next.js app router
-│   ├── components/
-│   │   ├── agents/          # Agent timeline, checklist
-│   │   ├── chat/            # Chat panel, messages, input, upload
-│   │   ├── dashboard/       # Decision dashboard, approval modal
-│   │   ├── sidebar/         # Conversation sidebar
-│   │   └── ui/              # Badges, progress, score rings
-│   ├── lib/
-│   │   ├── api.ts           # API client with SSE streaming
-│   │   ├── store.ts         # Zustand global state
-│   │   └── utils.ts         # Helpers, constants
-│   └── package.json
-├── docker-compose.yml
-└── README.md
-```
-
----
-
-## 🛠️ Tech Stack
-
-**Backend:**
-- FastAPI + Pydantic v2 (async)
-- LangGraph-inspired orchestration
-- LLM abstraction: Gemini Flash / Groq / OpenAI with fallback
-- In-memory store (no DB setup required for demo)
-- Document parsing: PyMuPDF, python-docx
-
-**Frontend:**
-- Next.js 15 (App Router)
-- Tailwind CSS + custom glassmorphism
-- Framer Motion (animations)
-- Zustand (state management)
-- React Markdown + remark-gfm
-- Server-Sent Events (SSE) streaming
-
-**Infrastructure (optional for demo):**
-- PostgreSQL (full persistence)
-- Redis (caching)
-- Qdrant (vector search)
-- Langfuse (LLM observability)
-
----
-
-## 🔗 GitHub Repository
-
-[https://github.com/Saipraneeth-12/DecisionOS](https://github.com/Saipraneeth-12/DecisionOS)
+### Banking / Enterprise Operations
+- risk-informed recommendations with evidence and reasoning
 
 ---
 
 ## 👥 Team
 
-| Name | Branch |
-|------|--------|
+| Name | Domain/Focus |
+|------|--------------|
 | **Abhijna Adapa** | CSE (Data Science) |
 | **Sai Praneeth** | CSE (AI & ML) |
 | **Deepthi** | CSE (Data Science) |
 
 ---
 
-## 🏆 Hackathon Highlights
+## 📁 Project Structure
 
-- **10 specialized AI agents** running in coordinated pipeline
-- **Planner-based orchestration** with parallel execution
-- **Hierarchical memory** (session → episodic → organizational)
-- **Full explainability** — every recommendation shows evidence, sources, business rules, memory refs
-- **Human-in-the-loop** — Approve, Modify, Reject, Escalate with audit trail
-- **Real-time streaming** — see agents execute live
-- **Multi-domain** — Customer Success, Sales, Healthcare, Energy, Staffing, Banking
-- **Document upload** — ingest CRM exports, transcripts, playbooks, contracts
-- **Demo-ready** — 5 pre-seeded conversations, suggested prompts, beautiful dark UI
+```text
+decision-os/
+├── backend/
+│   ├── app/
+│   ├── data/
+│   ├── scripts/
+│   └── requirements.txt
+├── frontend/
+│   ├── app/
+│   ├── components/
+│   ├── lib/
+│   └── package.json
+├── docker-compose.yml
+├── README.md
+└── .env.example
+```
+
+---
+
+## 🔗 Repository
+
+https://github.com/Saipraneeth-12/DecisionOS
+
+---
+
+## 🏆 Why This Project Stands Out
+
+DecisionOS combines multiple important skills in one project:
+- AI/ML application design
+- LLM integration and orchestration
+- full-stack product development
+- workflow planning and system architecture
+- business-focused problem solving
+- user-centric design with explainability
+
+This project reflects a strong understanding of how artificial intelligence can be used to support decision-making in real organizations, not just as a static demo.
+
+---
+
+## ✨ Closing Note
+
+DecisionOS is a practical AI product prototype built to showcase the ability to merge product thinking, machine intelligence, business logic, and software engineering into a single, impactful system.
+
+It is well suited for evaluation by recruiters, technical screening panels, and hiring teams looking for a candidate/team with interest in AI-driven enterprise solutions.
