@@ -1,6 +1,6 @@
-# ⚡ DecisionOS — Agentic Decision Intelligence Platform
+# ⚡ DecisionOS — AI-Powered Decision Intelligence Platform
 
-> A next-generation AI-powered decision intelligence platform designed to help enterprises turn scattered business data into explainable, actionable outcomes.
+> DecisionOS is an intelligent business decision-support platform that helps teams analyze situations, retrieve business context, and receive explainable next-best actions using multiple AI agents.
 
 [![Python](https://img.shields.io/badge/Python-3.12-blue)](https://python.org)
 [![FastAPI](https://img.shields.io/badge/FastAPI-0.111-green)](https://fastapi.tiangolo.com)
@@ -9,118 +9,95 @@
 
 ---
 
-## 📌 HR Screening Summary
+## 📌 Recruiter Summary
 
-DecisionOS is an enterprise decision-support system that uses multiple AI agents to analyze customer, sales, hiring, and operational scenarios and recommend the best next action with reasoning. The platform is designed for real business use cases where teams need faster decision-making, clearer explanation, and structured action plans.
+DecisionOS is a full-stack AI product prototype built to solve a very real business problem: helping teams make faster, more informed decisions from incomplete information.
 
-This project demonstrates:
-- AI-driven business decision support for real-world domains
-- Multi-agent orchestration for specialized reasoning
-- Human-in-the-loop decision approval workflow
-- Explainable recommendations backed by evidence and context
-- Enterprise-ready design for customer success, sales, staffing, and operations
+The platform combines AI reasoning, document understanding, memory retrieval, and multi-agent orchestration to analyze enterprise scenarios such as customer churn, sales opportunities, hiring decisions, and operational risk. Instead of simply generating a generic answer, it provides structured reasoning, evidence-backed recommendations, and a human approval workflow.
 
-DecisionOS was built as a collaborative student innovation project with a strong focus on applied AI, full-stack development, and product thinking.
+This project demonstrates a strong mix of:
+- AI/ML application development
+- full-stack engineering
+- system design and architecture
+- business-focused product thinking
+- explainable and trustworthy AI workflows
 
 ---
 
-## 🎯 Problem We Solved
+## 🎯 Problem It Solves
 
-Modern organizations deal with fragmented information across CRM data, documents, customer conversations, and internal knowledge. Teams often struggle to:
-- identify the right next step from incomplete or noisy inputs
-- evaluate risk, opportunity, and urgency together
-- understand why a recommendation was made
-- coordinate decisions across teams without delays
+Businesses often face fragmented information across CRM tools, documents, customer interactions, and internal knowledge. Important decisions are delayed because teams struggle to:
+- interpret incomplete or noisy data
+- identify the true root cause of an issue
+- prioritize actions based on urgency and impact
+- explain why a recommendation was made
 
-DecisionOS addresses this by combining AI reasoning, document understanding, memory, and workflow orchestration into one decision platform.
+DecisionOS addresses this by creating a structured decision environment where AI agents work together to understand the context and generate practical next steps.
 
 ---
 
 ## 🧠 What the Product Does
 
-DecisionOS acts like an intelligent operational assistant for business decisions. It can:
-- understand business context from user prompts and uploaded documents
+DecisionOS acts as an AI decision assistant for business teams. It can:
+- process user prompts and business context
 - detect intent, domain, urgency, and missing information
-- retrieve relevant organizational memory and domain knowledge
-- analyze risk and opportunity in parallel
-- generate an explainable recommendation or "Next Best Action"
-- allow human approval, modification, or rejection of decisions
+- analyze relevant internal and external knowledge
+- retrieve organizational memory and similar case histories
+- evaluate risk and opportunity together
+- generate an explainable recommendation or “Next Best Action”
+- allow human review, edit, approval, or rejection of the output
 
-This makes it suitable for scenarios such as:
-- customer churn prevention
-- upsell and expansion planning
-- candidate evaluation
-- deal acceleration
-- operational support and decision auditing
-
----
-
-## 🏗️ Architecture Overview
-
-```text
-┌──────────────────────────────────────────────────────────────────────┐
-│                        DecisionOS                                     │
-├──────────────────┬──────────────────────┬────────────────────────────┤
-│   Frontend       │      Backend         │    Infrastructure          │
-│   Next.js 15     │      FastAPI         │    PostgreSQL             │
-│   Tailwind CSS   │      LangGraph       │    Redis                  │
-│   Framer Motion  │      LLM Layer       │    Qdrant (vectors)       │
-│   Zustand        │      Memory Layer    │    Langfuse               │
-└──────────────────┴──────────────────────┴────────────────────────────┘
-```
-
-The platform follows an agentic workflow:
-
-1. User input is interpreted and structured
-2. Missing information is identified
-3. Relevant knowledge and memory are retrieved
-4. Specialized agents analyze risk, opportunity, and domain context
-5. The recommendation engine proposes a decision
-6. Human users validate, modify, or reject it
-7. Outcomes are stored for future learning
+This makes it suitable for use cases such as:
+- customer retention and churn risk analysis
+- upsell or cross-sell opportunity evaluation
+- sales deal acceleration
+- candidate assessment for hiring decisions
+- decision support in operational or enterprise workflows
 
 ---
 
-## 🤖 Core Agent System
+## 🏗️ How It Works
 
-DecisionOS uses a coordinated multi-agent architecture with specialized roles:
+The system uses a multi-agent architecture where specialized agents collaborate to perform distinct tasks:
 
-| Agent | Responsibility |
-|-------|----------------|
-| Conversation Manager | Understand intent, entities, and urgency |
-| Information Completeness | Identify missing context and gaps |
-| Planner | Build execution strategy and coordination flow |
-| Memory Agent | Retrieve previous experience and similar cases |
-| Knowledge Agent | Search knowledge and document repositories |
+| Agent | Role |
+|-------|------|
+| Conversation Manager | Understand intent, entities, and customer context |
+| Information Completeness | Identify missing information and data gaps |
+| Planner | Coordinate task execution and workflow strategy |
+| Memory Agent | Retrieve prior experiences and similar cases |
+| Knowledge Agent | Search documents and business knowledge |
 | Domain Specialist | Apply domain-specific reasoning |
-| Risk Agent | Evaluate threats and escalation conditions |
-| Opportunity Agent | Find growth and expansion potential |
-| Recommendation Agent | Produce explainable next-best actions |
-| Confidence Agent | Assess evidence quality and decision confidence |
+| Risk Agent | Assess threats, urgency, and risk exposure |
+| Opportunity Agent | Find revenue or growth opportunities |
+| Recommendation Agent | Produce explainable recommendations |
+| Confidence Agent | Evaluate evidence quality and decision confidence |
+
+This architecture is designed to mimic how a real decision-support team might operate—using specialists rather than a single generic model.
 
 ---
 
-## 💼 Business Impact
+## 📈 Business Value
 
-This project is designed to demonstrate how AI can support business operations by:
-- reducing decision delay for complex situations
-- improving transparency in recommendation systems
-- combining structured data, documents, and memory for better judgment
-- empowering teams with faster, evidence-backed actions
-- enabling human oversight for critical decisions
+DecisionOS is built to provide value in real business settings by:
+- reducing time-to-decision for complex scenarios
+- improving transparency in AI-driven recommendations
+- combining structured data, memory, and documents into one workflow
+- supporting human-in-the-loop decision making
+- enabling faster operational actions with better context
 
-In short, DecisionOS is a practical example of AI solving real business coordination and reasoning problems rather than just answering generic questions.
+The project is relevant for enterprise applications where explainability, trust, and actionability matter as much as speed.
 
 ---
 
-## 🛠️ Technology Stack
+## 🛠️ Tech Stack
 
 **Backend:**
 - Python 3.12+
 - FastAPI
 - Pydantic
 - LangGraph-inspired orchestration
-- LLM abstraction for Gemini / Groq / OpenAI
+- LLM integration for Gemini / Groq / OpenAI
 
 **Frontend:**
 - Next.js 15
@@ -129,7 +106,7 @@ In short, DecisionOS is a practical example of AI solving real business coordina
 - Framer Motion
 - Zustand
 
-**Infrastructure (optional/demo-ready):**
+**Infrastructure:**
 - PostgreSQL
 - Redis
 - Qdrant
@@ -142,9 +119,9 @@ In short, DecisionOS is a practical example of AI solving real business coordina
 ### Prerequisites
 - Python 3.12+
 - Node.js 20+
-- Gemini API key or Groq API key
+- API key for Gemini or Groq
 
-### Backend Setup
+### Backend
 ```bash
 cd backend
 copy .env.example .env
@@ -152,42 +129,30 @@ pip install -r requirements.txt
 uvicorn app.main:app --reload --port 8000
 ```
 
-### Frontend Setup
+### Frontend
 ```bash
 cd frontend
 npm install
 npm run dev
 ```
 
-Open the app at: http://localhost:3000
+Open: http://localhost:3000
 
 ---
 
-## 🌍 Demo Use Cases
+## 🌍 Example Use Cases
 
-DecisionOS can be demonstrated using scenarios such as:
-
-### Customer Success
-- churn-risk analysis
-- renewal prioritization
-- account health monitoring
-
-### Sales
-- upsell planning
-- deal acceleration
-- opportunity prioritization
-
-### Staffing
-- candidate evaluation for hiring decisions
-
-### Banking / Enterprise Operations
-- risk-informed recommendations with evidence and reasoning
+- Customer churn analysis and retention strategy
+- Sales opportunity prioritization and expansion planning
+- Candidate screening and hiring recommendation support
+- Deal acceleration for enterprise accounts
+- Operational decision-making with explainable reasoning
 
 ---
 
 ## 👥 Team
 
-| Name | Domain/Focus |
+| Name | Branch/Focus |
 |------|--------------|
 | **Abhijna Adapa** | CSE (Data Science) |
 | **Sai Praneeth** | CSE (AI & ML) |
@@ -195,24 +160,16 @@ DecisionOS can be demonstrated using scenarios such as:
 
 ---
 
-## 📁 Project Structure
+## 🏆 Why This Project Stands Out
 
-```text
-decision-os/
-├── backend/
-│   ├── app/
-│   ├── data/
-│   ├── scripts/
-│   └── requirements.txt
-├── frontend/
-│   ├── app/
-│   ├── components/
-│   ├── lib/
-│   └── package.json
-├── docker-compose.yml
-├── README.md
-└── .env.example
-```
+DecisionOS demonstrates a strong end-to-end product mindset:
+- AI product design with real business relevance
+- multi-agent orchestration and workflow engineering
+- application of LLMs in a structured enterprise use case
+- full-stack implementation with an interactive user interface
+- focus on explainability and human oversight
+
+This is not just a demo—it is a practical prototype of how AI can be used to support decision-making in real organizations.
 
 ---
 
@@ -222,22 +179,6 @@ https://github.com/Saipraneeth-12/DecisionOS
 
 ---
 
-## 🏆 Why This Project Stands Out
-
-DecisionOS combines multiple important skills in one project:
-- AI/ML application design
-- LLM integration and orchestration
-- full-stack product development
-- workflow planning and system architecture
-- business-focused problem solving
-- user-centric design with explainability
-
-This project reflects a strong understanding of how artificial intelligence can be used to support decision-making in real organizations, not just as a static demo.
-
----
-
 ## ✨ Closing Note
 
-DecisionOS is a practical AI product prototype built to showcase the ability to merge product thinking, machine intelligence, business logic, and software engineering into a single, impactful system.
-
-It is well suited for evaluation by recruiters, technical screening panels, and hiring teams looking for a candidate/team with interest in AI-driven enterprise solutions.
+DecisionOS reflects the ability to combine software engineering, applied AI, and business problem-solving into a single project. It is well suited for technical screening, recruiter evaluation, and interviews focused on AI-driven product development and enterprise innovation.
