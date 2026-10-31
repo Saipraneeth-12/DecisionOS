@@ -1,184 +1,457 @@
-# ⚡ DecisionOS — AI-Powered Decision Intelligence Platform
+# DecisionOS — Agentic Decision Intelligence Platform
 
-> DecisionOS is an intelligent business decision-support platform that helps teams analyze situations, retrieve business context, and receive explainable next-best actions using multiple AI agents.
+> Turn enterprise context into explainable, actionable decisions with a coordinated multi-agent AI workflow.
 
-[![Python](https://img.shields.io/badge/Python-3.12-blue)](https://python.org)
-[![FastAPI](https://img.shields.io/badge/FastAPI-0.111-green)](https://fastapi.tiangolo.com)
-[![Next.js](https://img.shields.io/badge/Next.js-15-black)](https://nextjs.org)
-[![TypeScript](https://img.shields.io/badge/TypeScript-5-blue)](https://typescriptlang.org)
+**DecisionOS** is an AI-powered decision intelligence platform that accepts business or operational questions, gathers relevant context, coordinates specialized agents, and produces explainable **Next Best Actions (NBAs)**. It is designed to make the reasoning behind a recommendation visible through evidence, risk analysis, confidence information, and human review.
 
----
-
-## 📌 Recruiter Summary
-
-DecisionOS is a full-stack AI product prototype built to solve a very real business problem: helping teams make faster, more informed decisions from incomplete information.
-
-The platform combines AI reasoning, document understanding, memory retrieval, and multi-agent orchestration to analyze enterprise scenarios such as customer churn, sales opportunities, hiring decisions, and operational risk. Instead of simply generating a generic answer, it provides structured reasoning, evidence-backed recommendations, and a human approval workflow.
-
-This project demonstrates a strong mix of:
-- AI/ML application development
-- full-stack engineering
-- system design and architecture
-- business-focused product thinking
-- explainable and trustworthy AI workflows
+<p align="center">
+  <a href="https://github.com/Saipraneeth-12/DecisionOS">GitHub Repository</a>
+  ·
+  <a href="#getting-started">Getting Started</a>
+  ·
+  <a href="#architecture">Architecture</a>
+</p>
 
 ---
 
-## 🎯 Problem It Solves
+## Contents
 
-Businesses often face fragmented information across CRM tools, documents, customer interactions, and internal knowledge. Important decisions are delayed because teams struggle to:
-- interpret incomplete or noisy data
-- identify the true root cause of an issue
-- prioritize actions based on urgency and impact
-- explain why a recommendation was made
-
-DecisionOS addresses this by creating a structured decision environment where AI agents work together to understand the context and generate practical next steps.
-
----
-
-## 🧠 What the Product Does
-
-DecisionOS acts as an AI decision assistant for business teams. It can:
-- process user prompts and business context
-- detect intent, domain, urgency, and missing information
-- analyze relevant internal and external knowledge
-- retrieve organizational memory and similar case histories
-- evaluate risk and opportunity together
-- generate an explainable recommendation or “Next Best Action”
-- allow human review, edit, approval, or rejection of the output
-
-This makes it suitable for use cases such as:
-- customer retention and churn risk analysis
-- upsell or cross-sell opportunity evaluation
-- sales deal acceleration
-- candidate assessment for hiring decisions
-- decision support in operational or enterprise workflows
+- [Overview](#overview)
+- [Key capabilities](#key-capabilities)
+- [Screenshots](#screenshots)
+- [Architecture](#architecture)
+- [Agent workflow](#agent-workflow)
+- [Technology stack](#technology-stack)
+- [Repository structure](#repository-structure)
+- [Getting started](#getting-started)
+- [Configuration](#configuration)
+- [Example use cases](#example-use-cases)
+- [API and local documentation](#api-and-local-documentation)
+- [Evaluation and limitations](#evaluation-and-limitations)
+- [Security notes](#security-notes)
+- [Team](#team)
 
 ---
 
-## 🏗️ How It Works
+## Overview
 
-The system uses a multi-agent architecture where specialized agents collaborate to perform distinct tasks:
+Teams make important decisions using information spread across conversations, documents, customer records, and internal knowledge. When the context and rationale are not brought together, decisions can be difficult to explain, revisit, or improve.
 
-| Agent | Role |
-|-------|------|
-| Conversation Manager | Understand intent, entities, and customer context |
-| Information Completeness | Identify missing information and data gaps |
-| Planner | Coordinate task execution and workflow strategy |
-| Memory Agent | Retrieve prior experiences and similar cases |
-| Knowledge Agent | Search documents and business knowledge |
-| Domain Specialist | Apply domain-specific reasoning |
-| Risk Agent | Assess threats, urgency, and risk exposure |
-| Opportunity Agent | Find revenue or growth opportunities |
-| Recommendation Agent | Produce explainable recommendations |
-| Confidence Agent | Evaluate evidence quality and decision confidence |
+DecisionOS addresses this problem with a structured AI workflow:
 
-This architecture is designed to mimic how a real decision-support team might operate—using specialists rather than a single generic model.
+1. Understand the user's request and identify its business context.
+2. Check whether enough information is available to proceed.
+3. Plan the required agent tasks and identify work that can run in parallel.
+4. Retrieve relevant organizational memory and document knowledge.
+5. Analyze domain-specific risks and opportunities.
+6. Generate a recommendation with supporting reasoning.
+7. Present the result for human review and approval.
 
----
+The platform combines a **Next.js frontend** with a **FastAPI backend** and a multi-agent orchestration workflow.
 
-## 📈 Business Value
+## Key capabilities
 
-DecisionOS is built to provide value in real business settings by:
-- reducing time-to-decision for complex scenarios
-- improving transparency in AI-driven recommendations
-- combining structured data, memory, and documents into one workflow
-- supporting human-in-the-loop decision making
-- enabling faster operational actions with better context
+- **Multi-agent reasoning:** Specialized agents handle intent, completeness, planning, memory, knowledge retrieval, domain analysis, risk, opportunities, recommendations, and confidence.
+- **Parallel execution:** Independent memory and knowledge tasks, as well as risk and opportunity analysis, can be coordinated in parallel by the planner.
+- **Retrieval-augmented knowledge:** The knowledge agent is designed to use relevant uploaded documents and enterprise material such as playbooks, policies, contracts, and transcripts.
+- **Organizational memory:** Memory components provide a place to retrieve prior context and retain decision-related information across the workflow.
+- **Explainable recommendations:** Recommendations are intended to include their supporting evidence, sources, business rules, and relevant memory references.
+- **Human-in-the-loop review:** Users can approve, modify, reject, or escalate a proposed action.
+- **Streaming interface:** The frontend can display agent execution progress as the workflow runs.
+- **Document-oriented workflows:** The backend includes document parsing support for formats such as PDF and DOCX.
+- **Multiple business scenarios:** Example scenarios cover customer success, sales, healthcare, energy, staffing, and banking.
 
-The project is relevant for enterprise applications where explainability, trust, and actionability matter as much as speed.
+> Feature availability depends on the configured model provider, data sources, and runtime configuration. Configure optional services before relying on them in a deployment.
 
 ---
 
-## 🛠️ Tech Stack
+## Screenshots
 
-**Backend:**
-- Python 3.12+
-- FastAPI
-- Pydantic
-- LangGraph-inspired orchestration
-- LLM integration for Gemini / Groq / OpenAI
+Add screenshots captured from your **own running application** to the `docs/screenshots/` directory. The image paths below are suggested filenames; replace or remove any section for which you do not have a real screenshot.
 
-**Frontend:**
-- Next.js 15
-- TypeScript
-- Tailwind CSS
-- Framer Motion
-- Zustand
+<!-- Suggested screenshot: docs/screenshots/dashboard.png -->
+<!-- ![DecisionOS dashboard](docs/screenshots/dashboard.png) -->
 
-**Infrastructure:**
-- PostgreSQL
-- Redis
-- Qdrant
-- Langfuse
+### 1. Decision workspace
+
+Show the main application screen where a user enters a business question and reviews the resulting decision.
+
+<!-- Add: docs/screenshots/decision-workspace.png -->
+
+### 2. Agent execution
+
+Show the agent timeline or execution view, including the progress of the specialized agents.
+
+<!-- Add: docs/screenshots/agent-execution.png -->
+
+### 3. Recommendation and review
+
+Show a generated recommendation with its explanation and the human review controls.
+
+<!-- Add: docs/screenshots/recommendation-review.png -->
+
+### 4. Document or knowledge context
+
+Show a real example of the document/context workflow, if enabled in your local configuration.
+
+<!-- Add: docs/screenshots/knowledge-context.png -->
 
 ---
 
-## 🚀 Quick Start
+## Architecture
+
+DecisionOS separates the user interface, API layer, agent workflow, and supporting services.
+
+```mermaid
+flowchart TB
+    U[User] --> FE[Next.js Frontend]
+    FE --> API[FastAPI Backend]
+    API --> CM[Conversation Manager]
+    CM --> IC[Information Completeness Agent]
+    IC --> P[Planner Agent]
+
+    P --> M[Memory Agent]
+    P --> K[Knowledge Agent]
+
+    M --> DS[Domain Specialist]
+    K --> DS
+
+    DS --> R[Risk Agent]
+    DS --> O[Opportunity Agent]
+
+    R --> REC[Recommendation Agent]
+    O --> REC
+
+    REC --> C[Confidence Agent]
+    C --> H[Human Review]
+    H -->|Approve / Modify / Reject / Escalate| FE
+    H --> MU[Memory Update]
+```
+
+### Main components
+
+| Component | Responsibility |
+|---|---|
+| Frontend | User interaction, conversation interface, agent progress, and decision review |
+| FastAPI backend | API endpoints and coordination between application services |
+| Agent workflow | Plans and coordinates specialized reasoning tasks |
+| Memory layer | Retrieves relevant organizational and prior interaction context |
+| Knowledge layer | Retrieves information from supported documents and knowledge sources |
+| LLM abstraction | Provides a configurable interface to supported language-model providers |
+| Data and infrastructure adapters | Support optional persistence, caching, vector search, and observability integrations |
+
+The repository includes Docker Compose configuration for a full-stack setup. Check the compose file and environment template in the repository before enabling optional infrastructure services.
+
+---
+
+## Agent workflow
+
+The workflow is divided into specialized responsibilities rather than relying on one general-purpose prompt.
+
+| Agent | Responsibility |
+|---|---|
+| Conversation Manager | Identifies intent, business domain, entities, and urgency |
+| Information Completeness Agent | Checks required information, identifies gaps, and reports completeness |
+| Planner Agent | Builds the execution plan and determines which tasks can run in parallel |
+| Memory Agent | Retrieves organizational memory, similar cases, and relevant history |
+| Knowledge Agent | Retrieves relevant information from documents and knowledge sources |
+| Domain Specialist | Performs domain-oriented analysis and identifies relevant insights |
+| Risk Agent | Evaluates risks, urgency, customer health, and possible escalation |
+| Opportunity Agent | Identifies expansion, cross-sell, and other opportunities |
+| Recommendation Agent | Produces a proposed Next Best Action with supporting reasoning |
+| Confidence Agent | Assesses evidence quality, confidence, and data coverage |
+
+### Typical execution sequence
+
+1. A user submits a business question through the frontend.
+2. The Conversation Manager identifies the intent and context.
+3. The Information Completeness Agent checks for missing details.
+4. The Planner creates an execution graph.
+5. Memory and Knowledge agents gather relevant context.
+6. The Domain Specialist interprets the available information.
+7. Risk and Opportunity agents perform their respective analyses.
+8. The Recommendation Agent prepares a proposed Next Best Action.
+9. The Confidence Agent assesses the quality of the available evidence.
+10. The user reviews the result and decides whether to approve, modify, reject, or escalate it.
+
+---
+
+## Technology stack
+
+| Layer | Technologies |
+|---|---|
+| Frontend | Next.js 15, React, Tailwind CSS |
+| UI and interaction | Framer Motion, Zustand |
+| Backend | Python, FastAPI, Pydantic |
+| Agent orchestration | LangGraph-inspired multi-agent workflow |
+| LLM providers | Gemini, Groq, OpenAI-compatible provider configuration |
+| Document processing | PyMuPDF, python-docx |
+| API communication | REST APIs, Server-Sent Events (SSE) |
+| Optional infrastructure | PostgreSQL, Redis, Qdrant, Langfuse |
+| Containerization | Docker, Docker Compose |
+
+**Note:** The repository README describes PostgreSQL, Redis, Qdrant, and Langfuse as optional infrastructure for an expanded deployment. The demo configuration may use in-memory storage and may not require those services. Verify the current backend configuration and `docker-compose.yml` for the exact services enabled by your checkout.
+
+---
+
+## Repository structure
+
+The repository is organized into separate frontend and backend applications.
+
+```text
+DecisionOS/
+├── backend/
+│   ├── app/
+│   │   ├── agents/          # Specialized AI agents
+│   │   ├── api/
+│   │   │   └── routes/      # API routes
+│   │   ├── core/            # Configuration, LLM abstraction, logging
+│   │   ├── db/              # Database models and database access
+│   │   ├── memory/          # Memory management
+│   │   ├── services/        # Conversation and document services
+│   │   └── workflows/       # Decision orchestration workflow
+│   ├── data/
+│   │   └── sample/          # Sample data
+│   ├── scripts/             # Utility and seed scripts
+│   └── requirements.txt
+├── frontend/
+│   ├── app/                 # Next.js App Router
+│   ├── components/
+│   │   ├── agents/          # Agent timeline and checklist
+│   │   ├── chat/            # Chat interface
+│   │   ├── dashboard/       # Dashboard and approval UI
+│   │   ├── sidebar/         # Conversation navigation
+│   │   └── ui/              # Shared UI components
+│   ├── lib/                 # API client, state, and helpers
+│   └── package.json
+├── docker-compose.yml
+├── start.ps1
+└── README.md
+```
+
+---
+
+## Getting started
 
 ### Prerequisites
-- Python 3.12+
-- Node.js 20+
-- API key for Gemini or Groq
 
-### Backend
+Install the following before running the project:
+
+- Python 3.12 or later
+- Node.js 20 or later
+- npm
+- Git
+- A Gemini API key or Groq API key (depending on the selected LLM provider)
+- Docker Desktop, if you plan to use the Docker Compose setup
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/Saipraneeth-12/DecisionOS.git
+cd DecisionOS
+```
+
+### 2. Configure the backend
+
+Open a terminal in the backend directory:
+
 ```bash
 cd backend
-copy .env.example .env
+```
+
+Create your local environment file from the supplied template:
+
+**Windows PowerShell**
+```powershell
+Copy-Item .env.example .env
+```
+
+**macOS / Linux**
+```bash
+cp .env.example .env
+```
+
+Open `backend/.env` and add the API key for your selected provider. Use the variable names present in the checked-in `.env.example`; do not assume that every provider variable is required.
+
+Install the Python dependencies:
+
+```bash
 pip install -r requirements.txt
+```
+
+Start the backend:
+
+```bash
 uvicorn app.main:app --reload --port 8000
 ```
 
-### Frontend
+The backend should be available at:
+
+- API base: `http://localhost:8000`
+- Interactive API documentation: `http://localhost:8000/docs`
+
+### 3. Configure and run the frontend
+
+Open a **second terminal** from the repository root:
+
 ```bash
 cd frontend
 npm install
 npm run dev
 ```
 
-Open: http://localhost:3000
+Open the frontend at:
+
+`http://localhost:3000`
+
+Keep both the backend and frontend terminals running while using the application.
+
+### 4. Run with Docker Compose (optional)
+
+The repository includes a `docker-compose.yml` file. Review it and the environment variables it expects before starting the stack.
+
+From the repository root, create and populate the required environment file(s) according to the compose configuration, then run:
+
+```bash
+docker compose up --build
+```
+
+If your installation uses the legacy Compose command, use `docker-compose up --build`.
 
 ---
 
-## 🌍 Example Use Cases
+## Configuration
 
-- Customer churn analysis and retention strategy
-- Sales opportunity prioritization and expansion planning
-- Candidate screening and hiring recommendation support
-- Deal acceleration for enterprise accounts
-- Operational decision-making with explainable reasoning
+DecisionOS supports configurable LLM providers. The repository's current README identifies Gemini and Groq as supported choices and also describes an OpenAI-compatible provider option.
 
----
+Example configuration values:
 
-## 👥 Team
+```env
+LLM_PROVIDER=gemini
+LLM_MODEL=gemini-1.5-flash
+GEMINI_API_KEY=your_gemini_api_key
+```
 
-| Name | Branch/Focus |
-|------|--------------|
-| **Abhijna Adapa** | CSE (Data Science) |
-| **Sai Praneeth** | CSE (AI & ML) |
-| **Deepthi** | CSE (Data Science) |
+For Groq, configure the corresponding provider and API key using the exact variable names in `backend/.env.example`.
 
----
+### Obtain an API key
 
-## 🏆 Why This Project Stands Out
+- Google AI Studio: https://aistudio.google.com/
+- Groq Console: https://console.groq.com/
 
-DecisionOS demonstrates a strong end-to-end product mindset:
-- AI product design with real business relevance
-- multi-agent orchestration and workflow engineering
-- application of LLMs in a structured enterprise use case
-- full-stack implementation with an interactive user interface
-- focus on explainability and human oversight
+**Configuration checklist**
 
-This is not just a demo—it is a practical prototype of how AI can be used to support decision-making in real organizations.
+- Select a provider supported by the backend configuration.
+- Set the matching API key in the backend environment file.
+- Confirm the selected model name is available to your provider account.
+- Restart the backend after changing environment variables.
+- Never commit `.env` files or API keys to GitHub.
 
 ---
 
-## 🔗 Repository
+## Example use cases
 
-https://github.com/Saipraneeth-12/DecisionOS
+The following prompts illustrate the kinds of business questions that can be explored with the application. They are sample scenarios, not claims about real customer outcomes.
+
+### Customer success — churn risk
+
+```text
+We are worried about churn risk for Acme Corp. Their annual contract
+renews in 60 days. Platform usage has dropped significantly, our
+main customer contact has left, and a competitor is being evaluated.
+What should the customer success team do next?
+```
+
+### Sales — expansion opportunity
+
+```text
+A customer has high feature adoption and positive feedback, and has
+recently expanded its engineering team. Identify potential expansion
+opportunities and recommend the next action.
+```
+
+### Sales — deal acceleration
+
+```text
+A large enterprise deal has remained in the final stage for several
+weeks. Procurement is delaying progress and a competitor has entered
+the evaluation. Identify the main risks and recommend next steps.
+```
+
+### Staffing — candidate review
+
+```text
+A candidate has strong machine learning and LLM experience but
+limited team leadership experience. Evaluate the available evidence
+against the requirements of a senior individual-contributor role.
+```
 
 ---
 
-## ✨ Closing Note
+## API and local documentation
 
-DecisionOS reflects the ability to combine software engineering, applied AI, and business problem-solving into a single project. It is well suited for technical screening, recruiter evaluation, and interviews focused on AI-driven product development and enterprise innovation.
+When the backend is running, use FastAPI's interactive documentation:
+
+`http://localhost:8000/docs`
+
+This page exposes the API operations registered by the running backend. The exact routes and request schemas should be taken from the current source code and API documentation rather than assumed from these high-level project descriptions.
+
+---
+
+## Evaluation and limitations
+
+DecisionOS is an AI-assisted decision-support project. Its recommendations depend on the quality of the user input, retrieved documents, configured model, and available context.
+
+Keep the following in mind:
+
+- Model-generated recommendations can be incomplete or incorrect and should be reviewed by a human.
+- Confidence indicators should not be interpreted as guarantees of correctness.
+- Results may vary between LLM providers and model versions.
+- Optional services such as persistent databases, vector search, caching, and observability require their own configuration.
+- Do not use generated recommendations as the sole basis for high-impact business, financial, legal, employment, or healthcare decisions.
+
+For a technical evaluation, test the workflow with representative prompts, verify the evidence used by each recommendation, and record latency and quality measurements from your own environment.
+
+---
+
+## Security notes
+
+- Keep API keys and credentials in local environment files or a secrets manager.
+- Do not commit `.env` files, tokens, passwords, or private customer documents.
+- Use synthetic or anonymized data for demos and screenshots.
+- Restrict access to uploaded documents and generated decision records appropriately.
+- Review the authentication, authorization, and data-storage configuration before deploying beyond a local development environment.
+
+---
+
+## Team
+
+| Contributor | Area |
+|---|---|
+| Abhijna Adapa | CSE (Data Science) |
+| Sai Praneeth Kummari | CSE (AI & ML) |
+| Deepthi | CSE (Data Science) |
+
+---
+
+## Future enhancements
+
+Potential directions for further development include:
+
+- Broader evaluation of recommendation quality and evidence grounding.
+- More integrations with enterprise knowledge sources.
+- Improved monitoring of agent execution, latency, and model usage.
+- Expanded test coverage for agent workflows and failure handling.
+- More robust persistence and deployment configurations for production use.
+
+---
+
+## Repository
+
+**GitHub:** https://github.com/Saipraneeth-12/DecisionOS
+
+If you find the project useful, consider starring the repository and sharing feedback.
+
+---
+
+*DecisionOS — From scattered information to explainable next actions.*
